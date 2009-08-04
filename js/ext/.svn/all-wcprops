@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/communitytransa/!svn/ver/1/WebContent/js/ext
+END
+ext-all.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/communitytransa/!svn/ver/1/WebContent/js/ext/ext-all.js
+END
+ext-core.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/communitytransa/!svn/ver/1/WebContent/js/ext/ext-core.js
+END
+ext-all-debug.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/communitytransa/!svn/ver/1/WebContent/js/ext/ext-all-debug.js
+END
+ext-core-debug.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/communitytransa/!svn/ver/1/WebContent/js/ext/ext-core-debug.js
+END
+INCLUDE_ORDER.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/communitytransa/!svn/ver/1/WebContent/js/ext/INCLUDE_ORDER.txt
+END

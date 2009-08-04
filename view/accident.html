@@ -1,0 +1,36 @@
+<!--VTP_erreur-->{#error}<!--/VTP_erreur-->
+
+<h2>Enregistrement de l'accident</h2>
+
+
+<form method="post" action="index.php?page=secouriste">
+	<fieldset ><legend>Accident </legend>
+	
+	<table>
+	    <tr>
+	        <td><label for="heure">L'heure de l'accident (H:M) :</label></td>
+	        <td><input type="text" name="heure" value="HH:MM"/></td>
+	    </tr>
+	    <tr>
+	        <td><label for="heure">Nom du blessé :</label></td>
+	        <td><input type="date" name="nom" /></td>
+	    </tr>
+	    <tr>
+	        <td><label for="heure">Prénom du blessé :</label></td>
+	        <td><input type="date" name="prenom" /></td>
+	    </tr>
+	     <tr>
+	        <td><label for="heure">Type de soin demandé :</label></td>
+	        <td><input type = "radio" name = "type" value = "reanimation" checked="checked" > <label for = "type"> Réanimation</label> 
+	 			<input type = "radio" name = "type" value = "fracture" ><label for = "depart"> Fracture </label>  </td>
+	    </tr>
+	</table>
+	
+    
+    
+     </fieldset>
+	   
+	<input type="submit" value="Valider" />  
+	<br />
+     <input type="reset"/>
+</form>
