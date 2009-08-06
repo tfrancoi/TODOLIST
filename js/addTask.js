@@ -58,7 +58,7 @@ function newTask() {
 
 		var newTrans = new Ext.FormPanel({ 
 			renderTo : 'corps',
-			labelWidth:100,
+			labelWidth:120,
 			url:'index.php?page=addtask&task=addtask', 
 			frame:true, 
 			//title:'Nouvelle Transaction', 
