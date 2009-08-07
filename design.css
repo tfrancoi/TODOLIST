@@ -55,8 +55,8 @@ height: 50px;
   color: black;
   background-color: #cdd6ff; /* Une couleur de fond pour le corps */
    /*background-image: url("");*/
-  /* background-repeat: repeat-x; /* Une petite image de fond qui se répètera horizontalement en haut */
-  border: 2px solid blue; /* Une bordure pour bien marquer les limites du corps et pour faire joli */
+  /* background-repeat: repeat-x; */ /* Une petite image de fond qui se répètera horizontalement en haut */
+  /*border: 2px solid blue;*/ /* Une bordure pour bien marquer les limites du corps et pour faire joli */
 }
 
 

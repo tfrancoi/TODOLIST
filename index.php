@@ -28,18 +28,22 @@ $db = new Connection($db_server, $db_user, $db_mdp, $db_name);
 $_page = array ('accueil' => 'accueil.php',
 				'addtask' => 'addtask.php');
 				   
-$_js = array('addtask' => 'addTask.js');
+$_js = array('addtask' => 'addTask.js',
+		'accueil' => 'accueil.js');
 				   
 if(isset($_GET['page'])) {
 	$temp = $_GET['page'];
-	include("controler/$_page[$temp]");	
-	$template->addSession($fichier, "inc");
-	$template->setVar($fichier, "inc.include" ,"\"js/$_js[$temp]\"");
-	$template->closeSession($fichier, "inc");
+	
 }
 else {
-	include("controler/accueil.php");
+	$temp = 'accueil';
+	
 }
+
+include("controler/$_page[$temp]");	
+$template->addSession($fichier, "inc");
+$template->setVar($fichier, "inc.include" ,"\"js/$_js[$temp]\"");
+$template->closeSession($fichier, "inc");
 
 
 if(!isset($page)) {
