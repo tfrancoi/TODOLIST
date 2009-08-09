@@ -6,18 +6,16 @@ include("lib/mysql_connexion.class.php");
 //les paramètres
 include("lib/param.php");
 
-//inclus les modèles
-//include("model/sejour_logement.model.php");
-//include("model/attraction.model.php");
-//include("model/accident.model.php");
-//include("model/piste.model.php");
+//inclus les model
 include("model/priority.model.php");
 include("model/category.model.php");
 include("model/task.model.php");
+
+//charge le desgin html
 $template = new VTemplate();
 $fichier = $template->Open("design.html");
 
-
+//crée objet connection pour les controllers
 $db = new Connection($db_server, $db_user, $db_mdp, $db_name);
 
 
@@ -25,11 +23,10 @@ $db = new Connection($db_server, $db_user, $db_mdp, $db_name);
 
 
 //ici on inclus la page qu'il faut
-$_page = array ('accueil' => 'accueil.php',
-				'addtask' => 'addtask.php');
+$_page = array ('accueil' => 'viewTask.php',
+				'addtask' => 'addTask.php');
 				   
-$_js = array('addtask' => 'addTask.js',
-		'accueil' => 'accueil.js');
+
 				   
 if(isset($_GET['page'])) {
 	$temp = $_GET['page'];
@@ -41,21 +38,9 @@ else {
 }
 
 include("controler/$_page[$temp]");	
-$template->addSession($fichier, "inc");
-$template->setVar($fichier, "inc.include" ,"\"js/$_js[$temp]\"");
-$template->closeSession($fichier, "inc");
 
 
-if(!isset($page)) {
-	$page = "cette page n'existe pas";	
-}
-
-/*
-
-$template->addSession($fichier, "corps");
-$template->Parse($fichier, "corps.main" , $page);
-$template->closeSession($fichier, "corps");*/
-
+//si on a une tâche à effectué on affiche pas le design, la sortie est pour l'appel ajax
 if(!isset($_GET['task'])) {
 	$template->Display($fichier); //affichage du résultat
 }

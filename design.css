@@ -1,6 +1,6 @@
 body
 {
-   width: 80%;
+   width: 98%;
    margin: auto; /* Pour centrer notre page */
    margin-top: 20px; /* Pour éviter de coller avec le haut de la fenêtre du navigateur. Essayez d'enlever pour voir ! */
    margin-bottom: 20px;    /* Idem pour le bas du navigateur */
@@ -10,55 +10,19 @@ body
 {
    width: 100%;
    height: 125px;
-   background-image: url("image/entete.png");
+   /*background-image: url("image/entete.png");*/
    /*background-repeat: no-repeat;*/
    margin-bottom: 10px;
 }
-/* Le menu */
 
-#menu
-{
-width: 100%;
-height: 50px;
-/*background-color:#cdd6ff; */
-/*border: 2px solid black;*/
- text-align: center;
+#corps 
+{	
+	
 }
-
-#menu a
+#addtask 
 {
-   padding : 5px;
-   text-decoration: none;
-   color: black;/*i l faudra changer la couleur si il faut.*/
-   background-color:#cdd6ff; 
-   /*font-family: Arial, "Arial Black", "Times New Roman", Times, serif;*/
-   text-align: center;
-   border: 3px outset blue ;
-
+	
 }
-#menu a:hover /* Quand on pointe sur un lien du menu */
-{
-   background-color:#7aa2f3;
-   border: 3px inset blue ;
-   color: white;
-}
-
-#corps
-{
-  width : 99%;
-  /* Une marge à gauche pour pousser le corps, afin qu'il ne passe plus sous le menu */
-  margin-top : -20px;
-  margin-bottom : 20px;
-  /* Ca c'est pour éviter que le corps colle trop au pied de page en-dessous */
-  padding: 6px; /* Pour éviter que le texte à l'intérieur du corps ne colle trop à la bordure */
-   
-  color: black;
-  background-color: #cdd6ff; /* Une couleur de fond pour le corps */
-   /*background-image: url("");*/
-  /* background-repeat: repeat-x; */ /* Une petite image de fond qui se répètera horizontalement en haut */
-  /*border: 2px solid blue;*/ /* Une bordure pour bien marquer les limites du corps et pour faire joli */
-}
-
 
 #pied_de_page
 { 
@@ -66,14 +30,22 @@ height: 50px;
    text-align: center;
    margin-bottom: 20px; /*Ici je fait margin top mais le pied continue à ce mélanger avec le corp*/
    color: black;
-   /*background-color: #626262;*/
-   /*background-image: url("images/motif.png");*/
-  /* background-repeat: repeat-x;*/
-   
- /* border: 2px solid black;*/
- 
-  }
+}
   
-  .error {
-  	color : red;
-  }
+
+  
+.red td {
+	font-weight : bold;
+	color : red;
+}
+  
+.green td {
+	font-weight : bold;
+	color : green;
+}
+
+.orange td {
+  	font-weight : bold;
+	color : orange;
+}
+

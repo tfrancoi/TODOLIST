@@ -4,7 +4,8 @@ CREATE TABLE `todo`.`task` (
 `category` SMALLINT NOT NULL ,
 `priority` TINYINT NOT NULL ,
 `lateness` BOOL NOT NULL DEFAULT '1',
-`deadline` DATETIME NOT NULL
+`deadline` DATETIME NOT NULL,
+`done` tinyint(1) NOT NULL,
 ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_roman_ci;
 
 

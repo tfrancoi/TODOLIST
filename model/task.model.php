@@ -12,7 +12,7 @@
 	}
 	
 	function list_task_all($db, $order) {
-		$sql = "SELECT category.name AS category, priority.color AS color, priority.name AS priority, task.name AS name, ".
+		$sql = "SELECT done, task.id AS id, category.name AS category, priority.color AS color, priority.name AS priority, task.name AS name, ".
 			   "deadline, lateness, ordre FROM task, category, priority ".
 			   "WHERE category.id = task.category AND priority.id = task.priority ORDER BY $order";
 
