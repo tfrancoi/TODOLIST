@@ -20,11 +20,24 @@ if(isset($_GET['task']) && $_GET['task'] == "infotask")  {
 		
 		
 	}
-	echo '{success:true, rows:'.json_encode($re).'}';
+	
+	echo '{success: true, rows:'.json_encode($re).'}';
 	
 
 }
 
+else if(isset($_GET['task']) && $_GET['task'] == "updatetask")  {
+	$id = $_GET['id'];
+	$field = $_GET['field'];
+	$value = $_GET['value'];
+	
+	$db->open();
+	update_task($db, $field, $value, $id);
+	$db->close();
+	
+
+	echo '{success : true}';
+}
 
 
 

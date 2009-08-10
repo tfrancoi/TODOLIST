@@ -16,7 +16,7 @@ function newTaskView() {
 			
 			store: new Ext.data.SimpleStore({
 				fields: ['value', 'render'],
-				data : [[true, 'oui'], [false, 'non']]
+				data : [[1, 'oui'], [0, 'non']]
 				
 			}),
 			displayField:'render',
@@ -48,14 +48,24 @@ function newTaskView() {
 	
 	function init() {
 		
-	
-	  columnModel = new Ext.grid.ColumnModel([
-		{header: "Nom", dataIndex: 'name'},
-		{header: "Categorie", dataIndex: 'category'},
-		{header: "Deadline", dataIndex: 'deadline'},
-		{header: "Priorité", dataIndex: 'priority', hidden : true},
-		{header: "Retard permis", dataIndex: 'lateness', editor: boolean_edit(), renderer : boolean_render},
-		{header: "Fait", dataIndex: 'done', editor: boolean_edit()}
+		var fm = Ext.form, Ed = Ext.grid.GridEditor;
+		columnModel = new Ext.grid.ColumnModel([
+			{header: "Nom", dataIndex: 'name'},
+			{header: "Categorie", dataIndex: 'category'},
+			{header: "Deadline", dataIndex: 'deadline'},
+			{header: "Priorité", dataIndex: 'priority', hidden : true},
+			{header: "Retard permis", dataIndex: 'lateness', renderer : boolean_render},
+			/*{
+				header: 'Fait',
+				dataIndex: 'done',
+				width: 55,
+				renderer : function(v, p, record){
+					p.css += ' x-grid3-check-col-td';
+					return '<div class="x-grid3-check-col'+(v?'-on':'')+' x-grid3-cc-'+this.id+'">&#160;</div>';
+				},
+				editor: new Ed(new fm.Checkbox())
+			}*/
+			{header: "Fait", dataIndex: 'done', editor: boolean_edit(), renderer : boolean_render}
 	 ]);
 	 
 	  grid = new Ext.grid.EditorGridPanel({
@@ -63,9 +73,38 @@ function newTaskView() {
 		 //frame:true,
 		 title: 'Task List',
 		  height:500,
-		 
+		 clicksToEdit:1,
+		 waitMsg : 'saving',
 		  store: storeTask,
 		  colModel: columnModel,
+		  listeners: {
+		   afteredit: function(e){
+			  Ext.Ajax.request({
+				   url: 'index.php?page=accueil&task=updatetask',
+				   method : 'GET',
+				 
+				  params: {
+					 
+					 id: e.record.get('id'),
+					 field: e.field,
+					 value: e.value
+				  },
+				  success: function(resp,opt) {
+					  
+					 e.record.commit();
+				  },
+				failure: function(resp,opt) {
+						  Ext.Msg.alert('Hello', "rejet");
+					 e.record.reject();
+				  }
+			  
+				  
+			  });
+
+				  
+		   }
+		},
+
 		  view: new Ext.grid.GroupingView({
 				getRowClass : function (record, index) {
 								if(!record){
@@ -104,7 +143,7 @@ function newTaskView() {
 			storeTask = new Ext.data.GroupingStore({
 				reader : new Ext.data.ArrayReader(
 					{id:'id'}, 
-					['id', 'name', 'category', 'color', 'priority', 'deadline', 'lateness', 'ordre', 'done']
+					['id', 'name', 'category', 'color', 'priority', 'deadline', 'lateness', 'ordre', {name :'done', type : 'bool'}]
 				),
 
 
@@ -113,7 +152,7 @@ function newTaskView() {
 					direction: "DESC"
 				},
 				groupField: 'priority',
-				fields: ['id', 'name', 'category', 'color', 'priority', 'deadline', 'lateness', 'ordre', 'done'],
+				fields: ['id', 'name', 'category', 'color', 'priority', 'deadline', 'lateness', 'ordre', {name :'done', type : 'bool'}],
 				data : resp.rows
 			});
 			
@@ -127,5 +166,12 @@ function newTaskView() {
 }
 
 
+    
 
-
+ Ext.grid.CheckColumn = function(config){
+    Ext.apply(this, config);
+    if(!this.id){
+        this.id = Ext.id();
+    }
+    this.renderer = this.renderer.createDelegate(this);
+};

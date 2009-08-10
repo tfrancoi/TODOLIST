@@ -19,4 +19,11 @@
 		return $db->query($sql);
 			   
 	}
+	
+	
+	function update_task($db, $field, $value, $id) {
+		$sql = "UPDATE  task SET  `$field` =  '$value' WHERE  id = $id";
+		echo $sql;
+		return $db->query($sql);
+	}
 ?>

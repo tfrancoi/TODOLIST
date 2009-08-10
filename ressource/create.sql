@@ -5,7 +5,7 @@ CREATE TABLE `todo`.`task` (
 `priority` TINYINT NOT NULL ,
 `lateness` BOOL NOT NULL DEFAULT '1',
 `deadline` DATETIME NOT NULL,
-`done` tinyint(1) NOT NULL,
+`done` tinyint(1) NOT NULL
 ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_roman_ci;
 
 
@@ -42,7 +42,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Perso'),
 (3, 'BEST'),
 (4, 'Cours'),
-(5, 'Mémoire');
+(5, 'Memoire');
 
 
 INSERT INTO `priority` (`id`, `name`, `color`, `ordre`) VALUES
