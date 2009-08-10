@@ -23,7 +23,11 @@
 	
 	function update_task($db, $field, $value, $id) {
 		$sql = "UPDATE  task SET  `$field` =  '$value' WHERE  id = $id";
-		echo $sql;
+		return $db->query($sql);
+	}
+	
+	function nb_task_by_date($db) {
+		$sql = "SELECT DISTINCT deadline AS da, (SELECT count(deadline) FROM `task` WHERE deadline = da) AS nb FROM task ORDER by da";
 		return $db->query($sql);
 	}
 ?>

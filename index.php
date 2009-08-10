@@ -24,7 +24,8 @@ $db = new Connection($db_server, $db_user, $db_mdp, $db_name);
 
 //ici on inclus la page qu'il faut
 $_page = array ('accueil' => 'viewTask.php',
-				'addtask' => 'addTask.php');
+				'addtask' => 'addTask.php',
+				'charts'  => 'charts.php' );
 				   
 
 				   

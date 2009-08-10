@@ -52,7 +52,7 @@ function newTaskView() {
 		columnModel = new Ext.grid.ColumnModel([
 			{header: "Nom", dataIndex: 'name'},
 			{header: "Categorie", dataIndex: 'category'},
-			{header: "Deadline", dataIndex: 'deadline'},
+			{header: "Deadline", dataIndex: 'deadline', renderer: Ext.util.Format.dateRenderer('d/m/Y')},
 			{header: "Priorité", dataIndex: 'priority', hidden : true},
 			{header: "Retard permis", dataIndex: 'lateness', renderer : boolean_render},
 			/*{
@@ -143,7 +143,7 @@ function newTaskView() {
 			storeTask = new Ext.data.GroupingStore({
 				reader : new Ext.data.ArrayReader(
 					{id:'id'}, 
-					['id', 'name', 'category', 'color', 'priority', 'deadline', 'lateness', 'ordre', {name :'done', type : 'bool'}]
+					['id', 'name', 'category', 'color', 'priority', {name : 'deadline' , type : 'date', dateFormat: 'Y-m-d'}, 'lateness', 'ordre', {name :'done', type : 'bool'}]
 				),
 
 
@@ -152,7 +152,7 @@ function newTaskView() {
 					direction: "DESC"
 				},
 				groupField: 'priority',
-				fields: ['id', 'name', 'category', 'color', 'priority', 'deadline', 'lateness', 'ordre', {name :'done', type : 'bool'}],
+				fields: ['id', 'name', 'category', 'color', 'priority', {name : 'deadline' , type : 'date', dateFormat: 'Y-m-d'}, 'lateness', 'ordre', {name :'done', type : 'bool'}],
 				data : resp.rows
 			});
 			

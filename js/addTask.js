@@ -8,7 +8,7 @@ function newTask() {
 	function init() {		
 
 		var priority = new Ext.form.ComboBox({
-			x : 355,
+			x : 335,
 			y : 0,
 			width : 135,
 			store: storePriority,
@@ -26,7 +26,7 @@ function newTask() {
 		});
 		
 		var category = new Ext.form.ComboBox({
-			x : 500,
+			x : 480,
 			y : 0,
 			width : 150,
 			store: storeCategory,
@@ -60,8 +60,14 @@ function newTask() {
 
 			items:[
 			{
+				x: 0,
+				y: 5,
+				xtype:'label',
+				text: 'Tache :'
+			},
+			{
 				
-				x : 0,
+				x : 40,
 				y : 0,
 				width : 150,
 				
@@ -70,40 +76,40 @@ function newTask() {
 			
 			},
 			{
-				x: 160,
+				x: 200,
 				y: 5,
 				xtype:'label',
 				text: 'Date :'
 			},
 			{
-				x: 195,
+				x: 235,
 				y: 0,
-				timeWidth: 60,
-				width : 150,
-				xtype:'xdatetime',
+				
+				width : 90,
+				xtype:'datefield',
 				//fieldLabel:'Deadline',                
-                timeFormat:'H:i',
-                dateFormat:'Y-m-d',
+                
+                format:'Y-m-d',
                 name: 'deadline'
             },
 			priority,
 			category,
 			{
-				x: 660,
+				x: 640,
 				y: 5,
 				xtype:'label',
 				text: 'Retard permis ?'
 			},
 			
 			new Ext.form.Checkbox({
-				x: 740,
+				x: 720,
 				y: 5,
 				fieldLabel:'Retard permis ?', 
 				name:'lateness'
 			}),
 			new Ext.Button({
-				text : 'Send',
-				x: 760,
+				text : 'Ajouter',
+				x: 740,
 				y: 0,
 				formBind: true,
 				handler:function(){ 
@@ -162,64 +168,3 @@ function newTask() {
 
 }
 
-
-
-/*!
-Ext.onReady(function() {
-    var form = new Ext.form.FormPanel({
-        baseCls: 'x-plain',
-        layout:'absolute',
-        url:'save-form.php',
-        defaultType: 'textfield',
-
-        items: [{
-            x: 0,
-            y: 5,
-            xtype:'label',
-            text: 'Send To:'
-        },{
-            x: 60,
-            y: 0,
-            name: 'to',
-            anchor:'100%'  // anchor width by percentage
-        },{
-            x: 0,
-            y: 35,
-            xtype:'label',
-            text: 'Subject:'
-        },{
-            x: 60,
-            y: 30,
-            name: 'subject',
-            anchor: '100%'  // anchor width by percentage
-        },{
-            x:0,
-            y: 60,
-            xtype: 'textarea',
-            name: 'msg',
-            anchor: '100% 100%'  // anchor width and height
-        }]
-    });
-
-    var window = new Ext.Window({
-        title: 'Resize Me',
-        width: 500,
-        height:300,
-        minWidth: 300,
-        minHeight: 200,
-        layout: 'fit',
-        plain:true,
-        bodyStyle:'padding:5px;',
-        buttonAlign:'center',
-        items: form,
-
-        buttons: [{
-            text: 'Send'
-        },{
-            text: 'Cancel'
-        }]
-    });
-
-    window.show();
-});
-*/

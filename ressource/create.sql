@@ -4,7 +4,7 @@ CREATE TABLE `todo`.`task` (
 `category` SMALLINT NOT NULL ,
 `priority` TINYINT NOT NULL ,
 `lateness` BOOL NOT NULL DEFAULT '1',
-`deadline` DATETIME NOT NULL,
+`deadline` DATE NOT NULL,
 `done` tinyint(1) NOT NULL
 ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_roman_ci;
 
@@ -49,3 +49,6 @@ INSERT INTO `priority` (`id`, `name`, `color`, `ordre`) VALUES
 (1, 'Haute', '#FF0000', 1),
 (2, 'Basse', '#808000', 10),
 (3, 'Moyenne', '#FF8040', 5);
+
+
+ALTER TABLE `task` CHANGE `deadline` `deadline` DATE NOT NULL 
